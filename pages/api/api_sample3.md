@@ -1,15 +1,11 @@
 ---
-title: Sample 1 Topic
+title: Sample 3 Topic (Product 1)
 keywords: sample
 summary: "This is just a sample topic..."
-sidebar: product2_sidebar
-permalink: p2_sample1.html
-simple_map: true
-map_name: usermap
-box_number: 1
-folder: product2
+sidebar: api_sidebar
+permalink: api_sample3.html
+folder: api
 ---
-
 
 ## Sample Content
 
