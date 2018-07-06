@@ -2,8 +2,8 @@
 
 entries:
 - title: Product2
-  product: Product2
-  version: 1.0
+  product: Example Applications
+  version:
   folders:
 
   - title:
