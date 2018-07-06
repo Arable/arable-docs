@@ -2,7 +2,7 @@
 title: "Getting started with the Arable API"
 keywords: sample homepage
 tags: [getting_started]
-sidebar: mydoc_sidebar
+sidebar: home_sidebar
 permalink: index.html
 summary: These brief instructions will help you get started quickly with using the Arable API. We also provide some more detailed applications and workflows that use Arable device data.
 ---
