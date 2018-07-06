@@ -17,6 +17,6 @@ topnav_dropdowns:
         - title: Getting Started
           url: /mydoc_introduction.html
         - title: Arable API Documentation
-          url: /p1_landing_page.html
+          url: /api_landing_page.html
         - title: Example Applications
-          url: /p2_landing_page.html
+          url: /examples_landing_page.html
