@@ -1,11 +1,11 @@
 destination: _site/
 url: "http://127.0.0.1:4010"
-baseurl: "/mydoc-pdf"
+baseurl: "/getting-started-pdf"
 port: 4010
 output: pdf
 product: mydoc
-print_title: Jekyll theme for documentation — mydoc product
-print_subtitle: version 6.0
+print_title: Arable API Documentation — Getting Started
+print_subtitle: version 1.0
 output: pdf
 defaults:
   -
