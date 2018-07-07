@@ -11,7 +11,7 @@ site_title: How to use our API and example application based on our data
 company_name: Arable Labs, Inc.
 # this appears in the footer
 
-github_editme_path: arable/arable-docs/blob/reviews/
+github_editme_path: Arable/arable-docs/tree/reviews/
 # if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
 # gitlab_editme_path: tomjoht/documentation-theme-jekyll/blob/gh-pages/
