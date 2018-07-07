@@ -6,17 +6,22 @@ entries:
   folders:
 
   - title: Contents
+
     output: web
     folderitems:
-    - title: News
-      url: /news.html
-      output: web
     - title: Getting Started
-      url: /mydoc_introduction.html
+      url: /index.html
       output: web
+   
+    # - title: Getting Started
+    #   url: /mydoc_introduction.html
+    #   output: web
     - title: API Documenation
       url: /API_landing_page.html
       output: web
     - title: Example Applications
       url: /examples_landing_page.html
+      output: web
+    - title: Data@Arable
+      url: /news.html
       output: web

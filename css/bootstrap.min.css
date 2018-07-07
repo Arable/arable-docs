@@ -1669,7 +1669,8 @@ mark {
 }
 
 .text-primary {
-    color: #337ab7
+/*    color: #3672C0*/
+    color: #DE5B35
 }
 
 a.text-primary:hover {

@@ -424,6 +424,8 @@ ul#mysidebar {
 span.projectTitle {
     font-family: Helvetica;
     font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .footer {
@@ -823,15 +825,6 @@ span.soft {
 
 .githubEditButton {
     margin-bottom:7px;
-}
-
-.endpoint {
-    padding: 15px;
-    background-color: #f0f0f0;
-    font-family: courier;
-    font-size: 110%;
-    margin: 20px 0px;
-    color: #444;
 }
 
 .parameter {

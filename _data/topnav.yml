@@ -5,18 +5,18 @@ topnav:
   items:
     - title: GitHub
       external_url: https://github.com/Arable/arable-docs
-    - title: News
-      url: /news
+    - title: Blog
+      url: /blog
 
-#Topnav dropdowns
-topnav_dropdowns:
-- title: Topnav dropdowns
-  folders:
-    - title: Tutorials
-      folderitems:
-        - title: Getting Started
-          url: /mydoc_introduction.html
-        - title: Arable API Documentation
-          url: /api_landing_page.html
-        - title: Example Applications
-          url: /examples_landing_page.html
+# #Topnav dropdowns
+# topnav_dropdowns:
+# - title: Topnav dropdowns
+#   folders:
+#     - title: Tutorials
+#       folderitems:
+#         - title: Getting Started
+#           url: /mydoc_introduction.html
+#         - title: Arable API Documentation
+#           url: /api_landing_page.html
+#         - title: Example Applications
+#           url: /examples_landing_page.html

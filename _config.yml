@@ -2,7 +2,7 @@ repository: Arable/arable-docs
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
-topnav_title: Arable API Documentation
+topnav_title: API User Guide
 # this appears on the top navigation bar next to the home button
 
 site_title: How to use our API and example application based on our data
@@ -63,6 +63,11 @@ kramdown:
 collections:
   tooltips:
     output: false
+    title: Tooltips
+    position: 2
+  api_books:
+    title: Books
+    position: 1
 # collections are declared here. this renders the content in _tooltips and processes it, but doesn't output it as actual files in the output unless you change output to true
 
 defaults:
@@ -102,9 +107,38 @@ defaults:
 sidebars:
 - home_sidebar
 - mydoc_sidebar
-- product1_sidebar
-- product2_sidebar
 - other
+
+types:
+  - get
+  - put
+  - delete
+  - post
+
+languages:
+  bash: Bash
+  c: C
+  css: CSS
+  html: HTML
+  java: Java
+  javascript: JavaScript
+  json: JSON
+  php: PHP
+  python: Python
+  ruby: Ruby
+
+_options:
+  content_markdown:
+    format: p h4 h5 h6
+    bold: true
+    italic: true
+    link: true
+    bulletedlist: true
+    numberedlist: true
+    image: true
+    table: true
+    styles: /css/editor.css
+
 
 description: "Technical  documentation for Arable Labs, Inc.."
 # the description is used in the feed.xml file
