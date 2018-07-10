@@ -1,11 +1,6 @@
 <!-- Navigation -->
-<header class="header">
-    <div class="logo">
-    <a title="Home" href="/">
-      <img src="//theme.zdassets.com/theme_assets/2129553/6c30a14d2433c3b21c8f305578cc1a8aeb2d054b.png" alt="Logo"> <span class="projectTitle">{{site.topnav_title}}</span>
-    </a>
-  </div>
-    <nav class="user-nav">
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -13,6 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> {{site.topnav_title}}</span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -79,6 +75,7 @@
                     <!--end search-->
                 </li>
             </ul>
-    </nav>
-</header>
-
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>

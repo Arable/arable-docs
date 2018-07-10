@@ -138,8 +138,7 @@ _options:
     image: true
     table: true
     styles: /css/editor.css
-
-
+  
 description: "Technical  documentation for Arable Labs, Inc.."
 # the description is used in the feed.xml file
 
