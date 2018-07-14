@@ -50,16 +50,26 @@ demo_tenant = 'franz_hydro'
 email = os.getenv('ARABLE_EMAIL', demo_email)
 password = os.getenv('ARABLE_PASSWORD', demo_password)
 tenant = os.getenv('ARABLE_TENANT', demo_tenant)
-device = 'A001069' 
 
+```
+</div>
+
+We create an instance of the arable client and establish our credentials using the `a.connect()` function.
+
+  <div class="input_area" markdown="1">
+
+```python
 a = ArableClient()
 if email and password and tenant:
   a.connect(email, password, tenant)
 
-sta = "2017-07-01"
-end = "2017-07-31"
-#end = datetime.now()
-#end = end.strftime("%Y-%m-%dT%H:%M:%SZ")
+# Get the current time
+now = datetime.datetime.now()
+
+# Let's use the last 30 days as a representative sample
+start_date = now - datetime.timedelta(days=30)
+end_date = now
+
 ```
 
   </div>
@@ -178,7 +188,7 @@ df = a.query(select='all',
                format='csv', 
                devices=[device], 
                measure="raw",
-               end=end, start=sta, 
+               end=end_date, start=start_date, 
                limit=10000) 
 
 # df = a.query(select='all', 
