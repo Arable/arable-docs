@@ -1,0 +1,287 @@
+openapi: 3.0.0
+info:
+  version: 0.1.dev0
+  title: Arable Data API
+  description: 'The [Arable](https://arable.com) API, built in [Swagger](https://swagger.io)'
+
+servers:
+  - url: https://api-user.arable.cloud/api/v1
+
+security:
+  - bearer: []
+
+tags:
+  - name: data
+    description: Data endpoint
+  - name: devices
+    description: Device endpoints
+  - name: security
+    description: Auth endpoint
+
+paths:
+  '/auth/user/{tenant}':
+    post:
+      summary: Authenticate a user
+      operationId: authUser
+      parameters:
+      - name: tenant
+        description: "tenant of the Org the user belongs to (same as the user's web app subdomain: {tenant}.arable.com)"
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+        '400':
+          description: Invalid input
+        '403':
+          description: auth failed
+      security:
+      - BasicAuth: []
+      tags:
+      - security
+  /data:
+    get:
+      summary: Get data filtered by the specified parameters
+      operationId: getData
+      tags:
+      - data
+      parameters:
+      - name: devices
+        description: devices for which to retrieve data (ignored if location given)
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        required: false
+      - name: location
+        description: location for which to retrieve data
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: start
+        description: earliest data to return
+        in: query
+        schema:
+          type: string
+          format: date-time
+        required: false
+      - name: end
+        description: latest data to return
+        in: query
+        schema:
+          type: string
+          format: date-time
+        required: false
+      - name: format
+        description: format of returned data; default json
+        in: query
+        schema:
+          type: string
+          enum: [csv, json]
+        required: false
+      - name: limit
+        description: max number of rows to return
+        in: query
+        schema:
+          type: integer
+          format: int32
+        required: false
+      - name: measure
+        description: table to return data for
+        in: query
+        schema:
+          type: string
+          enum: [daily, hourly]
+        required: true
+      - name: order
+        description: order for returned data; 'field' for 'field asc', '-field' for 'field desc'; default 'time'
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: select
+        description: named set of columns to return; default 'all'
+        in: query
+        schema:
+          type: string
+          enum: [all, microclimate, radiometer, spectrometer]
+        required: false
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Data'
+            text/csv:
+              schema:
+                type: string
+        '400':
+          description: Invalid ID supplied
+        '401':
+          description: unauthorized
+        '403':
+          description: forbidden
+        '404':
+          description: ID not found
+  /devices:
+    get:
+      summary: Read devices
+      operationId: getDevices
+      tags:
+      - devices
+      parameters:
+      - name: limit
+        description: number of devices to show per page (default 24)
+        in: query
+        required: false
+        schema:
+          type: number
+      - name: name
+        description: name of device to look up
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: page
+        description: page number (default 1)
+        in: query
+        required: false
+        schema:
+          type: number
+      - name: sortBy
+        description: field to sort by (prefix '-' for reverse, default -last_post)
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceArray'
+        '400':
+          description: invalid query parameter value
+        '401':
+          description: unauthorized
+        '403':
+          description: forbidden
+        '404':
+          description: device not found
+  '/devices/{id}':
+    get:
+      summary: Read the specified device
+      operationId: getDevice
+      tags:
+      - devices
+      parameters:
+      - description: device id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '400':
+          description: Invalid ID supplied
+        '401':
+          description: unauthorized
+        '403':
+          description: forbidden
+        '404':
+          description: ID not found
+
+components:
+
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    BasicAuth:
+      type: http
+      scheme: basic
+
+  schemas:
+    AccessToken:
+      properties:
+        access_token:
+          type: string
+        tracking:
+          type: string
+        user_id:
+          type: string
+      required:
+      - access_token
+      type: object
+    Data:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: string
+        measure:
+          type: string
+        values:
+          type: array
+          items:
+            anyOf:
+              - type: string
+              - type: number
+    Device:
+      properties:
+        flags:
+          items:
+            type: string
+          type: array
+        id:
+          type: string
+        last_deploy:
+          format: date-time
+          type: string
+        last_post:
+          format: date-time
+          type: string
+        last_seen:
+          format: date-time
+          type: string
+        location:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        name:
+          type: string
+        org:
+          type: string
+        owner:
+          type: string
+        signal_strength:
+          type: string
+        state:
+          type: string
+      required:
+      - id
+    DeviceArray:
+      items:
+        $ref: '#/components/schemas/Device'
+      type: array
