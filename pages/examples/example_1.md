@@ -21,6 +21,7 @@ from datetime import date, datetime, timedelta
 # for the tests
 from arable.client import ArableClient
 from io import StringIO
+import os
 import matplotlib.pyplot as plt
 ```
 
@@ -31,10 +32,14 @@ import matplotlib.pyplot as plt
   
 ```python
 # grab some mark data
-email = 'danielle@arable.com'
+email = os.getenv('ARABLE_EMAIL', None)
+password = os.getenv('ARABLE_PASSWORD', None)
+tenant = os.getenv('ARABLE_TENANT', None)
 device = 'A001069' 
+
 a = ArableClient()
-a.connect(email, 'arable1', 'arable')
+if email and password and tenant:
+  a.connect(email, password, tenant)
 
 sta = "2017-07-01"
 end = "2017-07-31"
