@@ -32,9 +32,24 @@ import matplotlib.pyplot as plt
   
 ```python
 # grab some mark data
-email = os.getenv('ARABLE_EMAIL', None)
-password = os.getenv('ARABLE_PASSWORD', None)
-tenant = os.getenv('ARABLE_TENANT', None)
+
+# These credentials can be used to access demo data:
+demo_email = 'friendof@arable.com'
+demo_password = 'agrofuturism'
+demo_tenant = 'franz_hydro'
+
+```
+</div>
+
+{% include note.html content="Next, we read your actual credentials in as environmental variables. If they aren't available, we'll just use the demo crendentials. See [Getting Started] for instructions on setting environmental variavbles" %}
+
+  <div class="input_area" markdown="1">
+
+```python
+
+email = os.getenv('ARABLE_EMAIL', demo_email)
+password = os.getenv('ARABLE_PASSWORD', demo_password)
+tenant = os.getenv('ARABLE_TENANT', demo_tenant)
 device = 'A001069' 
 
 a = ArableClient()
