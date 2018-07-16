@@ -16,7 +16,7 @@ summary: These brief instructions will help you get started quickly with using t
 
 ### 1. Install python and jupyter
 
-* Install [Homebrew](https://brew.sh/), a package installer for OS X. We prefer this to Anaconda, Fink, MacPorts, or any other python distributions.
+* Install [Homebrew](https://brew.sh/), a package installer for OS X.
 
 * Install Python version 2.7:
 
@@ -38,7 +38,7 @@ summary: These brief instructions will help you get started quickly with using t
 
 {% include note.html content="Pip may ask you to upgrade to pip 10. As of this writing, we have found pip 10 problematic." %}
 
-* Install [Sublime Text](http://www.sublimetext.com/), a fabulous text editor.
+* Install [Sublime Text](http://www.sublimetext.com/), a text editor.
 
 ###  2. Set up your shell environment.
 
@@ -53,16 +53,16 @@ echo 'alias ipy="jupyter notebook"' >> ~/.bashrc
 echo 'export EDITOR="subl -w" >> ~/.bashrc
 ```
 
-* Add your arable credentials to your environment.
+* Add your Arable credentials to your environment.
 
 ```
-echo 'export ARABLE_EMAIL="friendof@arable.com" >> ~/.bashrc
+echo 'export ARABLE_EMAIL="friendof@arable.com"' >> ~/.bashrc
 ```
 ```
-echo 'export ARABLE_PASSWD="agrofuturism" >> ~/.bashrc
+echo 'export ARABLE_PASSWD="agrofuturism"' >> ~/.bashrc
 ```
 ```
-echo 'export ARABLE_TENANT="franz_hydro" >> ~/.bashrc
+echo 'export ARABLE_TENANT="franz_hydro"' >> ~/.bashrc
 ```
 
 In the terminal type `. .bashrc`
