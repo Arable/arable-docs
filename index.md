@@ -14,17 +14,31 @@ summary: These brief instructions will help you get started quickly with using t
  
  {% include note.html content="Arable uses Python version 2.7" %}
 
-### 1. Install the Arable python client 
+### 1. Install python and jupyter
+
+* Install [Homebrew](https://brew.sh/), a package installer for OS X. We prefer this to Anaconda, Fink, MacPorts, or any other python distributions.
+
+* Install Python version 2.7:
 
 ```
-pip install arable
-``` 
+> brew install python@2
+```
 
-Place "physics.py" in a suitable place in your path to access these helpful functions 
+* Install Jupyter:
 
-(Note? why isn't this part of the arable client??)
+```
+> brew install jupyter
+```
 
-The notebook .ipynb can be opened in the Jupyter environment.  
+* Pip install numpy, pandas, and matplotlib:
+
+```
+> pip install numpy pandas matplotlib
+```
+
+{% include note.html content="Pip may ask you to upgrade to pip 10. As of this writing, we have found pip 10 problematic." %}
+
+* Install [Sublime Text](http://www.sublimetext.com/), a fabulous text editor.
 
 ###  2. Set up your shell environment.
 
@@ -33,10 +47,22 @@ The notebook .ipynb can be opened in the Jupyter environment.
 * Make some changes to your environment. 
 
 ```
-echo 'alias ipynb="jupyter notebook"' >> ~/.bashrc
+echo 'alias ipy="jupyter notebook"' >> ~/.bashrc
 ```
 ```
 echo 'export EDITOR="subl -w" >> ~/.bashrc
+```
+
+* Add your arable credentials to your environment.
+
+```
+echo 'export ARABLE_EMAIL="friendof@arable.com" >> ~/.bashrc
+```
+```
+echo 'export ARABLE_PASSWD="agrofuturism" >> ~/.bashrc
+```
+```
+echo 'export ARABLE_TENANT="franz_hydro" >> ~/.bashrc
 ```
 
 In the terminal type `. .bashrc`
@@ -54,35 +80,23 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 In the terminal type `. .bash_profile`
 
-### 3. Install python and jupyter
 
-* Install [Homebrew](https://brew.sh/)
+### 3. Install the Arable python client 
 
-* Install Python version 2.7:
-
-```
-> brew install python@2
-```
-
-* Install Jupyter:
+While not strictly necessary, you may find the arable python client to help get you going:
 
 ```
-> brew install jupyter
-```
+pip install arable
+``` 
 
-* Find a suitable folder and copy the `ipynb` file over to it.
-
-```
-> mkdir lib
-```
- Add `physics.py` to `/lib`
+Navigate to a project folder where you can start developing.
 
 ```
-> ipynb
+mkdir ~/Arable; cd ~/Arable
 ```
 
-A new window should open in your browser!  Update your username, password, and tenant and start playing with data!
+Download "physics.py" and move it into your project folder to access these helpful functions.
 
-[FIN]
+When you are ready to start the examples type `ipy`.
 
-
+### NB: physics.py is in the _jupyter folder
