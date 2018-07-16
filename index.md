@@ -65,7 +65,7 @@ echo 'export ARABLE_PASSWD="agrofuturism"' >> ~/.bashrc
 echo 'export ARABLE_TENANT="franz_hydro"' >> ~/.bashrc
 ```
 
-In the terminal type `. .bashrc`
+In the terminal type `. .bashrc` to activate these parameters in the current shell.
 
 In the terminal type `subl .bash_profile` and add the following text, then save and close.
 
