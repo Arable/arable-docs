@@ -10,7 +10,7 @@ summary: These brief instructions will help you get started quickly with using t
 {% include note.html content="These instructions assume basic familiarity with shell environments, but that you haven't used python before on your device." %}
 
 
-## Setting up your environment.
+## Setting up your environment
  
  {% include note.html content="Arable uses Python version 2.7" %}
 
@@ -83,7 +83,7 @@ In the terminal type `. .bash_profile`
 
 ### 3. Install the Arable python client 
 
-While not strictly necessary, you may find the arable python client to help get you going:
+While not strictly necessary, you may find the Arable python client useful to help get you going:
 
 ```
 pip install arable
@@ -95,8 +95,8 @@ Navigate to a project folder where you can start developing.
 mkdir ~/Arable; cd ~/Arable
 ```
 
-Download "physics.py" and move it into your project folder to access these helpful functions.
+Download [arable_physics.py](/_jupyter/arable_physics.py) and move it into your project folder to access these helpful functions.
 
-When you are ready to start the examples type `ipy`.
+When you are ready to start the examples type `ipy` in your terminal and try some of the [examples](/examples)!
 
 ### NB: physics.py is in the _jupyter folder
