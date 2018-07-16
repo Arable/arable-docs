@@ -50,7 +50,7 @@ summary: These brief instructions will help you get started quickly with using t
 echo 'alias ipy="jupyter notebook"' >> ~/.bashrc
 ```
 ```
-echo 'export EDITOR="subl -w" >> ~/.bashrc
+echo 'export EDITOR="subl -w"' >> ~/.bashrc
 ```
 
 * Add your Arable credentials to your environment.
