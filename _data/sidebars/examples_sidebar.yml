@@ -19,74 +19,64 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: Introduction
+  - title: Basics
     output: web, pdf
     folderitems:
 
-    - title: Overview
-      url: /p2_landing_page.html
+    - title: Downloading Data
+      url: /example_1.html
       output: web
 
-  - title: Simple Workflow
+    - title: Working with Data
+      url: /example_2.html
+      output: web
+
+    - title: Visualizing Data
+      url: /example_3.html
+      output: web
+
+    - title: Downloading Data
+      url: /example_4.html
+      output: web
+
+
+  - title: Science
     output: web, pdf
     folderitems:
 
-    - title: Sample 1
-      url: /p2_sample1.html
+    - title: ET
+      url: /example_et.html
       output: web, pdf
 
-    - title: Sample 2
-      url: /p2_sample2.html
+    - title: GDD
+      url: /example_gdd.html
       output: web, pdf
 
-    - title: Sample 3
-      url: /p2_sample3.html
+    - title: Mildew
+      url: /example_mildew.html
       output: web, pdf
 
-    - title: Sample 4
-      url: /p2_sample4.html
+    - title: Water Stress
+      url: /example_stress.html
       output: web, pdf
 
-    - title: Sample 5
-      url: /p2_sample5.html
+    - title: Vegetation Indices
+      url: /example_NDVI.html
       output: web, pdf
 
-  - title: Complex Workflow
+    - title: AuxBridge
+      url: /example_aux.html
+      output: web, pdf
+
+  - title: Application
     output: web, pdf
     folderitems:
 
-    - title: Sample 6
+    - title: Interactive SMS
       url: /p2_sample6.html
       output: web, pdf
 
-    - title: Sample 7
+    - title: Plotly
       url: /p2_sample7.html
       output: web, pdf
 
-    - title: Sample 8
-      url: /p2_sample8.html
-      output: web, pdf
-
-    - title: Sample 9
-      url: /p2_sample9.html
-      output: web, pdf
-
-    - title: Sample 10
-      url: /p2_sample10.html
-      output: web, pdf
-
-    - title: Sample 11
-      url: /p2_sample11.html
-      output: web, pdf
-
-    - title: Sample 12
-      url: /p2_sample12.html
-      output: web, pdf
-
-    - title: Sample 13
-      url: /p2_sample13.html
-      output: web, pdf
-
-    - title: Sample 14
-      url: /p2_sample14.html
-      output: web, pdf
