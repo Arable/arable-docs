@@ -19,7 +19,7 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: Basics
+  - title: Coding
     output: web, pdf
     folderitems:
 
@@ -68,7 +68,7 @@ entries:
       url: /example_aux.html
       output: web, pdf
 
-  - title: Application
+  - title: Apps
     output: web, pdf
     folderitems:
 
@@ -77,6 +77,6 @@ entries:
       output: web, pdf
 
     - title: Plotly
-      url: /p2_sample7.html
+      url: https://github.com/ecohydro/arable_dash
       output: web, pdf
 

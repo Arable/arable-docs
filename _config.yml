@@ -36,7 +36,7 @@ exclude:
 
 feedback_subject_line: Arable documentation site
 
-feedback_email: help@arable.com
+feedback_email: support@arable.com
 # used as a contact email for the Feedback link in the top navigation bar
 
 # feedback_disable: true

@@ -19,7 +19,7 @@ entries:
     - title: API Documenation
       url: /API_landing_page.html
       output: web
-    - title: Example Applications
+    - title: Tutorials and Examples
       url: /examples_landing_page.html
       output: web
     - title: Data@Arable
