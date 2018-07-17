@@ -12,7 +12,7 @@ folder: examples
 
 # Downloading Data
 
-_Outline_
+*_Outline_*
 1. Set credentials in your environment
 1. Use credentials to connect to the Arable API
 1. Pull info on Devices 
@@ -25,8 +25,6 @@ _Outline_
 
 In [Getting Started](https://pro-soap.cloudvent.net/index.html) we set up our username, password, and tenant in the shell environment. First we need retrieve them here:
 
-  <div class="input_area" markdown="1">
-
 ```python
 import os
 arable_email = os.getenv('ARABLE_EMAIL')
@@ -35,8 +33,6 @@ arable_tenant = os.getenv('ARABLE_TENANT')
 
 print arable_email, arable_passwd, arable_tenant
 ```
-
-  </div>
   
 {:.output_stream}
   ```
