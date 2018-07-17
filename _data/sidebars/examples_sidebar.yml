@@ -24,19 +24,19 @@ entries:
     folderitems:
 
     - title: Downloading Data
-      url: /example_1.html
+      url: /ex1_Downloading.html
       output: web
 
-    - title: Working with Data
-      url: /example_2.html
+    - title: Wrangling Data
+      url: /ex2_Wrangling.html
       output: web
 
     - title: Visualizing Data
-      url: /example_3.html
+      url: /ex3_Visualizing.html
       output: web
 
-    - title: Downloading Data
-      url: /example_4.html
+    - title: Transforming Data
+      url: /ex4_Transforming.html
       output: web
 
 

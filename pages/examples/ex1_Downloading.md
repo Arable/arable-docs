@@ -11,22 +11,45 @@ folder: examples
 ---
 
   <div class="input_area" markdown="1">
-  
+
+# Downloading Data
+
+Outline:
+* Set credentials in your environment
+* Use credentials to connect to the Arable API
+* Pull info on Devices 
+* Access Device info stored in key:value pairs
+* Explore Device Data and read into dataframe
+* Write Data tables out to a CSV file
+* Access Location info using Device id
+
+  </div>
+
+  <div class="input_area" markdown="1">
+
+## Set credentials in your environment
+
+In [Getting Started](https://pro-soap.cloudvent.net/index.html) we set up our username, password, and tenant in the shell environment. First we need retrieve them here:
+
+  </div>
+
+  <div class="input_area" markdown="1">
+
 ```python
-# for the functions
-import pandas as pd
-import numpy as np
-import requests
-from datetime import date, datetime, timedelta
-# for the tests
-from arable.client import ArableClient
-from io import StringIO
 import os
-import matplotlib.pyplot as plt
+arable_email = os.getenv('ARABLE_EMAIL')
+arable_passwd = os.getenv('ARABLE_PASSWD')
+arable_tenant = os.getenv('ARABLE_TENANT')
+
+print arable_email, arable_passwd, arable_tenant
 ```
 
   </div>
   
+{:.output_stream}
+  ```
+  friendof@arable.com agrofuturism franz_hydro
+  ```  
 
   <div class="input_area" markdown="1">
   

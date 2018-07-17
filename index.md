@@ -98,5 +98,3 @@ mkdir ~/Arable; cd ~/Arable
 Download [arable_physics.py](/py/arable_physics.py) and move it into your project folder to access these helpful functions.
 
 When you are ready to start the examples type `ipy` in your terminal and try some of the [examples](/examples_landing_page.html)!
-
-### NB: physics.py is in the _jupyter folder
