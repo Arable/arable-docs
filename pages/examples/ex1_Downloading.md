@@ -12,7 +12,7 @@ folder: examples
 
 # Downloading Data
 
-*_Outline_*
+_Outline_
 1. Set credentials in your environment
 1. Use credentials to connect to the Arable API
 1. Pull info on Devices 
@@ -35,11 +35,9 @@ print arable_email, arable_passwd, arable_tenant
 ```
   
 {:.output_stream}
-  ```
-  friendof@arable.com agrofuturism franz_hydro
-  ```  
-
-  <div class="input_area" markdown="1">
+```
+friendof@arable.com agrofuturism franz_hydro
+```  
   
 ## Use credentials to connect to the Arable API
 
@@ -47,337 +45,464 @@ There are two ways to connect, one is with a username and password, the other is
 
 First import the Arable python client you downloaded using `pip install arable`.
 
-</div>
-
-<div class="input_area" markdown="1">
-
 ```python
 from arable.client import *
 ```
-</div>
 
-We create an instance of the arable client and establish our credentials using the `a.connect()` function.
+Next use the ArableClient to make a connection with your credentials:
 
-  <div class="input_area" markdown="1">
 
 ```python
 a = ArableClient()
-if email and password and tenant:
-  a.connect(email, password, tenant)
-
-# Get the current time
-now = datetime.datetime.now()
-
-# Let's use the last 30 days as a representative sample
-start_date = now - datetime.timedelta(days=30)
-end_date = now
-
+a.connect(arable_email, arable_passwd, arable_tenant)
 ```
 
-  </div>
-  
+You can get your bearer token directly from the header of the response:
 
-  <div class="input_area" markdown="1">
+
+```python
+auth_token = a.header['Authorization']
+print auth_token
+```
   
+{:.output_stream}
+```
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vYXBpLmFyYWJsZS5jb20iLCJpYXQiOjE1MzE4MzgyODQsImp0aSI6IjVlNzIyYjU4NDY2ZDQ4N2Y4OGI5ODVkMTM0OTk5MjAyIiwiYXVkIjoiYXBpLmFyYWJsZS5jb20iLCJzY29wZSI6ImM2YjllMTIxLTFiZjItNDNkMS1hNDYwLTI3NWIxZWI0ODdhOSJ9.n3K8bES7-Wko5urpwBO24w2JZQrHoABtL1b_ssymtHs
+```
+
+For the time being, we're not going to use the token method, we're just going to use ArableClient.
+
+## Pull info on Devices
+
+Use `a.devices()` to retrieve metadata about the devices you have permissions on.
+
+{% include note.html content="Note, this returns a max of 24 devices.  We don't yet support pagination." %}
+
+
 ```python
 devices = a.devices()
 ```
 
-  </div>
-  
+Let's list out the dictionary for a device:
 
-  <div class="input_area" markdown="1">
-  
 ```python
-# {k for d in devices for k in d.keys()}
+list(devices[0])
 ```
 
-  </div>
-  
-
-  <div class="input_area" markdown="1">
-  
-```python
-#device = devices[0]
-for i in range(len(devices)):
-    print devices[i]['name'],  devices[i]['last_seen'],  devices[i]['last_post'], devices[i]['last_deploy']
+{:.output_stream}
+```
+[u'sync_interval',
+ u'updated',
+ u'name',
+ u'roles',
+ u'created',
+ u'last_deploy',
+ u'firmware',
+ u'state',
+ u'reported_fw',
+ u'signal_strength',
+ u'flags',
+ u'location',
+ u'owner',
+ u'org',
+ u'model',
+ u'permissions',
+ u'last_post',
+ u'id',
+ u'last_seen']
 ```
 
-  </div>
-  
-  {:.output_stream}
-  ```
-  A000780 2018-06-25T17:29:48 2018-06-25T17:29:48 2018-06-23T20:23:34
-A000493 2018-06-25T17:29:46.325000 2018-06-25T17:29:46.325000 2018-06-25T17:14:57.459000
-A000032 2018-06-25T17:29:48.358000 2018-06-25T17:29:46.229000 2018-06-24T21:25:59.057000
-A000061 2018-06-25T17:29:46 2018-06-25T17:29:46 2018-06-25T11:27:35
-A000478 2018-06-25T17:29:45.791000 2018-06-25T17:29:45.791000 2018-06-25T16:30:34.098000
-A000135 2018-06-25T17:29:45.736000 2018-06-25T17:29:45.736000 2018-06-25T15:39:30.971000
-A001086 2018-06-25T17:29:45 2018-06-25T17:29:43 2018-06-25T12:27:53
-A000470 2018-06-25T17:29:38 2018-06-25T17:29:38 2018-06-25T05:26:27
-A000421 2018-06-25T17:29:32.861000 2018-06-25T17:29:32.861000 2018-06-24T19:25:05.589000
-A001002 2018-06-25T17:29:31 2018-06-25T17:29:31 2018-06-19T23:06:30
-A000677 2018-06-25T17:29:29.900000 2018-06-25T17:29:27.883000 2018-06-19T20:12:30.173000
-B00052 2018-06-25T17:29:26.982000 2018-06-25T17:29:24.678000 2018-06-15T10:52:22.952000
-A000152 2018-06-25T17:29:24 2018-06-25T17:29:24 2018-06-24T00:22:03
-A000763 2018-06-25T17:29:22.060000 2018-06-25T17:29:19.881000 2018-06-24T02:20:32.606000
-A000829 2018-06-25T17:29:12 2018-06-25T17:29:12 2018-06-23T12:21:04
-A000934 2018-06-25T17:29:10 2018-06-25T17:29:10 2018-06-23T00:15:30
-A001050 2018-06-25T17:29:11.958000 2018-06-25T17:29:09.837000 2018-06-17T16:58:29.212000
-A000183 2018-06-25T17:29:07 2018-06-25T17:29:07 2018-06-24T15:24:37
-A000955 2018-06-25T17:28:56 2018-06-25T17:28:56 2018-06-24T03:22:15
-A000847 2018-06-25T17:28:39 2018-06-25T17:28:39 2018-06-25T09:26:05
-A000863 2018-06-25T17:28:36 2018-06-25T17:28:36 2018-06-21T11:10:33
-A000590 2018-06-25T17:28:30.803000 2018-06-25T17:28:28.439000 2018-06-13T11:48:36.630000
-A000597 2018-06-25T17:28:22 2018-06-25T17:28:22 2018-06-21T19:16:05
-A000861 2018-06-25T17:28:04.564000 2018-06-25T17:28:02.392000 2018-06-20T09:12:51.137000
+Let's look at one device in detail to understand what is the data that gets stored. 
 
-  ```
-  
+For an in-depth reference on what all these mean, make sure to check out the [API Documentation](https://pro-soap.cloudvent.net/API_landing_page.html)
 
-  <div class="input_area" markdown="1">
-  
 ```python
+device = 'A000176'
+
 d = a.devices(name=device)
-d['name']
-```
 
-  </div>
-  
-
-
-
-  {:.output_data_text}
-  ```
-  u'A001069'
-  ```
-  
-
-
-
-  <div class="input_area" markdown="1">
-  
-```python
-for i = 
-```
-
-  </div>
-  
-
-  <div class="input_area" markdown="1">
-  
-```python
-print d['name'],  d['last_seen'],  d['last_post'], d['last_deploy']
-```
-
-  </div>
-  
-  {:.output_stream}
-  ```
-  A001069 2018-06-25T16:09:02 2018-06-25T16:09:02 2018-06-23T01:01:25
-
-  ```
-  
-
-  <div class="input_area" markdown="1">
-  
-```python
-sta = d['last_deploy']
-end = datetime.now()
-end = end.strftime("%Y-%m-%dT%H:%M:%SZ")
-
-df = a.query(select='all', 
-               format='csv', 
-               devices=[device], 
-               measure="raw",
-               end=end_date, start=start_date, 
-               limit=10000) 
-
-# df = a.query(select='all', 
-#                format='csv', 
-#                devices=[device], 
-#                measure="health", 
-#                end=end, start=sta, 
-#                limit=1) 
-
-df = StringIO(df)
-df = pd.read_csv(df, sep=',', error_bad_lines=False)
-
-# make sure I'm using a datetime object
-df['time'] = pd.to_datetime(df['time'])
-
-# # df['RH'] = df['RH']/100.0
-# # df['P'] = P
-# # df.to_csv('A176_hourly.csv')
-
-# # data.head(2)
-# # data.tail(2)
-```
-
-  </div>
-  
-
-  <div class="input_area" markdown="1">
-  
-```python
-df['temp']
-```
-
-  </div>
-  
-
-
-
-  {:.output_data_text}
-  ```
-  0        NaN
-1        NaN
-2      17.19
-3        NaN
-4        NaN
-5        NaN
-6        NaN
-7      17.15
-8        NaN
-9        NaN
-10       NaN
-11       NaN
-12     17.09
-13       NaN
-14       NaN
-15       NaN
-16       NaN
-17     17.11
-18       NaN
-19       NaN
-20       NaN
-21       NaN
-22     17.13
-23       NaN
-24       NaN
-25       NaN
-26       NaN
-27     17.14
-28       NaN
-29       NaN
-       ...  
-863    17.52
-864    17.42
-865    17.45
-866    17.48
-867    17.57
-868    17.68
-869    17.73
-870    17.76
-871    17.88
-872    17.98
-873    18.02
-874    18.10
-875    18.21
-876    18.28
-877    18.37
-878    18.46
-879    18.58
-880    18.72
-881    18.84
-882    18.98
-883    19.09
-884    19.25
-885    19.39
-886      NaN
-887      NaN
-888    19.60
-889      NaN
-890      NaN
-891      NaN
-892    19.73
-Name: temp, Length: 893, dtype: float64
-  ```
-  
-
-
-
-  <div class="input_area" markdown="1">
-  
-```python
-d['signal_strength']
-```
-
-  </div>
-  
-
-
-
-  {:.output_data_text}
-  ```
-  u'Very Good'
-  ```
-  
-
-
-
-  <div class="input_area" markdown="1">
-  
-```python
 d
 ```
 
-  </div>
-  
-
-
-
-  {:.output_data_text}
-  ```
-  {u'created': u'2018-03-23T16:33:54.619000',
+{:.output_stream}
+```
+{u'created': u'2017-12-13T18:01:37.061000',
  u'firmware': u'eff57fea-8cd9-4dc7-ac2e-3296e8bfc5e0',
- u'flags': [u'Orientation'],
- u'id': u'58e6ac98b4e1e886de87bb92',
- u'last_deploy': u'2018-06-23T01:01:25',
- u'last_post': u'2018-06-25T16:09:02',
- u'last_seen': u'2018-06-25T16:09:02',
- u'location': {u'id': u'5b23f1aa5d4dc70b312543cb',
-  u'name': u'1069 Bob Bendfeldt'},
+ u'flags': [u'GPS', u'Orientation'],
+ u'id': u'58e65d68b4e1e886020c517e',
+ u'last_deploy': u'2018-07-16T05:28:34',
+ u'last_post': u'2018-07-17T14:33:41',
+ u'last_seen': u'2018-07-17T14:33:41',
+ u'location': {u'id': u'5b043a2f17edbb00015afa42',
+  u'name': u'UNLTAPS 2, 60% Irr.'},
  u'model': u'4',
- u'name': u'A001069',
- u'org': u'5942be02b4e1e8ced6db2c7e',
- u'owner': u'5b0443f954757d5c77c000e8',
- u'permissions': [u'599c9cc62877ba42397f5462',
-  u'5b11ba1df22caa3b450383f3',
-  u'5b280baad250685163ca95b4',
-  u'5b2983d1f22caa085e6be2ae'],
+ u'name': u'A000176',
+ u'org': u'593b753217d33383c09bb435',
+ u'owner': u'593b75b417d33383c09bb436',
+ u'permissions': [u'5b298296d250685163ca9a58',
+  u'5b298296d250685163ca9a57',
+  u'5b4ce79b720b5915ea099a43',
+  u'5b0dbb9254757d66aebe5cca',
+  u'5b2040fff22caa2951fad998',
+  u'5b31130c720b596b63118713',
+  u'5b2d62e9720b596b631180a2'],
  u'reported_fw': u'Release-0.2.0.0',
  u'roles': [],
  u'signal_strength': u'Very Good',
  u'state': u'Active',
  u'sync_interval': 4,
- u'updated': u'2018-06-25T16:09:02.247000'}
-  ```
-  
+ u'updated': u'2018-07-17T14:33:42.013000'}
+ ```
 
+Note you can also access this device directly using its serial number or its unique id.  
 
-# Todo
-- query language shall be `mark <device>`
-- repeat back device
-- signal strength in plain language (from devices())
-- voltage (from health) 
-- GPS (from health or raw)
-- T° and RH° (temp and rh from raw) - present in °F
-- for all of these get the most recent valid (non-Nan) number
-- Synced XX minutes ago
-- Deployed on XX date (skip the time)
-- you decide how to make it conversational
+It may seem like a headache to use such a long and unwieldy identifier, but it is through this unique ID that devices are mapped to locations, users, and organization.
 
-# Extra Credit
-- short url with google map of lat/long
-- extract cell id from twilio, get its time zone, return deployed time in local time
-
-
-  <div class="input_area" markdown="1">
-  
 ```python
+device_id = d['id']
 
+d = a.devices(device_id)
+
+device_id
+```
+{:.output_stream}
+```
+u'58e65d68b4e1e886020c517e'
 ```
 
-  </div>
+## Access Device info stored as key:value pairs
+
+Because Device info is stored in JSON, it is easy to extract info out of it using `['key']` syntax:
+
+```python
+devices = a.devices()
+for i in range(len(devices)):
+    print devices[i]['name'], devices[i]['signal_strength']
+```
+
+{:.output_stream}
+```
+A000176 Very Good
+A000654 Good
+A000149 Very Good
+A000136 Very Good
+A000069 Very Good
+A000172 Very Good
+A000153 Very Good
+A000148 Very Good
+A000152 Very Good
+A000100 Very Good
+A000652 Weak
+A000651 Good
+A000655 Very Good
+A000183 Very Good
+A000653 Weak
+A000177 Very Good
+```
+
+## Explore Device Data
+
+The real action is of course exploring the data that comes from the Mark.
+
+The data comes in a number of separate tables, which are explained in detail in the [API Documentation](https://pro-soap.cloudvent.net/API_landing_page.html)
+
+* hourly
+* daily
+* health
+* aux_raw
+
+The data can be pulled using the Arable python client's `a.query()` function, with parameters that govern which device, which time period, and which table.
+
+```python
+from io import StringIO
+import pandas as pd
+
+device = 'A000176' 
+
+sta = "2018-07-04 08:00:00"
+end = "2018-07-07 08:00:00"
+
+hourly = a.query(select='all', 
+             format='csv', 
+             devices=[device], 
+             measure='hourly', 
+             order='time', 
+             end=end, start=sta) 
+
+hourly = StringIO(hourly)
+hourly = pd.read_csv(hourly, sep=',', error_bad_lines=False)
+```
+
+Note that we read the data into a [pandas](https://pandas.pydata.org/) dataframe.  We do almost all of our analysis in Pandas.
+
+Let's list the data we get from `hourly`:
+
+```python
+list(hourly)
+```
+
+{:.output_stream}
+```
+['time',
+ 'device',
+ 'location',
+ 'lat',
+ 'long',
+ 'B1dw',
+ 'B1uw',
+ 'B2dw',
+ 'B2uw',
+ 'B3dw',
+ 'B3uw',
+ 'B4dw',
+ 'B4uw',
+ 'B5dw',
+ 'B5uw',
+ 'B6dw',
+ 'B6uw',
+ 'B7dw',
+ 'B7uw',
+ 'LWdw',
+ 'LWuw',
+ 'LfW',
+ 'P',
+ 'SLP',
+ 'PARdw',
+ 'PARuw',
+ 'RH',
+ 'SWdw',
+ 'SWuw',
+ 'Tabove',
+ 'Tair',
+ 'Tbelow',
+ 'Tdew',
+ 'prate',
+ 'precip']
+```
+
+```python
+daily = a.query(select='all', 
+             format='csv', 
+             devices=[device], 
+             measure='daily', 
+             order='time', 
+             end=end, start=sta) 
+
+daily = StringIO(daily)
+daily = pd.read_csv(daily, sep=',', error_bad_lines=False)
+list(daily)
+```
+
+{:.output_stream}
+```
+['time',
+ 'device',
+ 'location',
+ 'lat',
+ 'long',
+ 'CGDD',
+ 'Cl',
+ 'ET',
+ 'GDD',
+ 'LfAirDelta',
+ 'NDVI',
+ 'SWdw',
+ 'maxT',
+ 'meanT',
+ 'minT',
+ 'prate',
+ 'precip',
+ 'SLP',
+ 'Kc',
+ 'ETc']
+```
+
+And so on for `health`:
+
+{:.output_stream}
+```
+['time',
+ 'device',
+ 'lat',
+ 'long',
+ 'batt_current',
+ 'batt_pct',
+ 'batt_volt',
+ 'err0',
+ 'err1',
+ 'err2',
+ 'err3',
+ 'err4',
+ 'orient_x',
+ 'orient_y',
+ 'orient_z',
+ 'elev',
+ 'sys_temp',
+ 'pres_temp',
+ 'thcouple_volt',
+ 't_conn',
+ 't_sync',
+ 'msg_bytes',
+ 'tot_bytes',
+ 'tz',
+ 'fw',
+ 'reset',
+ 'rssi',
+ 'burn_in',
+ 'auxb_present',
+ 'auxb_charging',
+ 'auxb_rev',
+ 'iccid']
+ ```
+
+When we ask for `aux_raw` we'll get an error because this device has no aux plugged in.  
+
+```python
+aux_raw = a.query(select='all', 
+             format='csv', 
+             devices=[device], 
+             measure='aux_raw', 
+             order='time', 
+             end=end, start=sta) 
+
+aux_raw = StringIO(aux_raw)
+aux_raw = pd.read_csv(aux_raw, sep=',', error_bad_lines=False)
+list(aux_raw)
+```
+
+{:.output_stream}
+```bash
+EmptyDataError: No columns to parse from file
+```
+
+This "No columns to parse" error is useful to recognize.  When you get it, try changing the parameters of the request, especially the start and end times, to make sure the request will collect valid data.
+
+## Write dataframes out to a CSV file
+
+This one is easy in pandas:
+
+```python
+hourly.to_csv('A000176.csv')
+```
+
+## Access Location info using Device id
+
+We found some useful measures anout the Device using the Device id, now it's time to use that Device ID to access the location associated with it.  Here we'll find this like its latitude, longitude, height above sea level and the like.
+
+To do this we'll need to access the API directly, without use of the Arable python client.
+
+Recall that you can get your bearer token from the header of the initial response, and that we can get the current location_id from the device structure.
+
+```python
+auth_token = a.header['Authorization']
+
+location_id = a.devices(name='A000176')['location']['id']
+```
+
+Next let's compose an HTTP `GET` request to the Arable API, along with our credentials, to get the Location info.
+
+```python
+import requests
+
+base = 'https://api-user.arable.cloud/api/v1/'
+path = '/locations/'
+url = base + path + location_id
+
+response = requests.get(url, headers = {'Authorization': auth_token})
+location = response.json()
+
+location
+```
+
+{:.output_stream}
+```
+{u'addr_city': u'North Platte',
+ u'addr_postcode': u'69101',
+ u'addr_state': u'NE',
+ u'county': u'Lincoln County',
+ u'created': u'2018-05-22T15:41:35.489000',
+ u'current_device': {u'created': u'2017-12-13 18:01:37.061000',
+  u'firmware': u'eff57fea-8cd9-4dc7-ac2e-3296e8bfc5e0',
+  u'id': u'58e65d68b4e1e886020c517e',
+  u'last_deploy': u'2018-07-16 05:28:34',
+  u'last_post': u'2018-07-17 16:33:54',
+  u'last_seen': u'2018-07-17 16:33:54',
+  u'model': u'4',
+  u'name': u'A000176',
+  u'org': u'593b753217d33383c09bb435',
+  u'owner': u'593b75b417d33383c09bb436',
+  u'permissions': u"[ObjectId('5b298296d250685163ca9a58'), ObjectId('5b298296d250685163ca9a57'), ObjectId('5b4ce79b720b5915ea099a43'), ObjectId('5b0dbb9254757d66aebe5cca'), ObjectId('5b2040fff22caa2951fad998'), ObjectId('5b31130c720b596b63118713'), ObjectId('5b2d62e9720b596b631180a2')]",
+  u'reported_fw': u'Release-0.2.0.0',
+  u'roles': u'[]',
+  u'state': u'Active',
+  u'sync_interval': u'4',
+  u'updated': u'2018-07-17 16:33:54.751000'},
+ u'elevation': 862.0997924804688,
+ u'gps': {u'coordinates': [-100.77352, 41.08763], u'type': u'Point'},
+ u'id': u'5b043a2f17edbb00015afa42',
+ u'last_updated': u'2018-05-22T15:41:35',
+ u'name': u'UNLTAPS 2, 60% Irr.',
+ u'notes': u'',
+ u'org': u'593b753217d33383c09bb435',
+ u'permissions': [u'5b298296d250685163ca9a58',
+  u'5b298296d250685163ca9a57',
+  u'5b4ce79b720b5915ea099a43',
+  u'5b0dbb9254757d66aebe5cca',
+  u'5b2040fff22caa2951fad998',
+  u'5b31130c720b596b63118713',
+  u'5b2d62e9720b596b631180a2'],
+ u'radius': 1.0,
+ u'start_date': u'2018-05-22T15:41:35',
+ u'state': u'Confirmed',
+ u'tags': [],
+ u'time_offset': -18000}
+```
+
+You can see that the location is device agnostic - - it has the device information stored as `current_device` but this location could just as easily have a different device swapped in or out.
+
+As well, there are location-specific values that don't depend on the device, including the lat/long, elevation, and time offset (to convert UTC to local time).
+
+{% include note.html content="Note, there is a strong likelihood that the Locations structure will continue to evolve, which is why it is not included in the ArableClient." %}
+
+```python
+print location['current_device']['name'], location['gps']['coordinates'], location['time_offset']
+```
   
+{:.output_stream}
+```
+A000176 [-100.77352, 41.08763] -18000
+```
+
+We won't get to functions until the 4th tutorial, but if you want, you can wrap this up handle exceptions and make it easy to use.
+
+```python
+def location_info(loc_id, auth_token):
+    '''
+    Queries location api for metadata
+    : param loc_id: alphanumeric location id; 24 character string
+    : param auth_token: authorization credentials
+    : return: location metadata
+    '''
+
+    #base = 'https://api.arable.com/dev3'
+    base = 'https://api-user.arable.cloud/api/v1/'
+    path = '/locations/'
+    url = base + path + loc_id
+    headers = 'Bearer ' + auth_token
+
+    try:
+        response = requests.get(url, headers = {'Authorization': headers})
+        response = response.json()
+    except Exception:
+        print('Unable to get location data with url {}'.format(url))
+        exit(1)  
+    return response
+```
+
+Great job! Now head over to the [Data Wrangling](https://pro-soap.cloudvent.net/ex1_Wrangling.html) tutorial! 
+
+
+
+
+
+
