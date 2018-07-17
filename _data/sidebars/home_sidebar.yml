@@ -16,7 +16,7 @@ entries:
     # - title: Getting Started
     #   url: /mydoc_introduction.html
     #   output: web
-    - title: API Documenation
+    - title: API Documentation
       url: /API_landing_page.html
       output: web
     - title: Tutorials and Examples
