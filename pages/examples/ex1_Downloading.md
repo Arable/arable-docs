@@ -1,29 +1,29 @@
 ---
 title: Sample 1 Topic
 keywords: sample
-summary: "This is just a sample topic..."
+summary: "Learn how to pull data from the Arable API"
 sidebar: examples_sidebar
-permalink: example_1.html
+permalink: ex1_Downloading.html
 simple_map: true
 map_name: usermap
 box_number: 1
 folder: examples
 ---
 
-  <div class="input_area" markdown="1">
+<div class="input_area" markdown="1">
 
 # Downloading Data
 
 Outline:
-* Set credentials in your environment
-* Use credentials to connect to the Arable API
-* Pull info on Devices 
-* Access Device info stored in key:value pairs
-* Explore Device Data and read into dataframe
-* Write Data tables out to a CSV file
-* Access Location info using Device id
+ * Set credentials in your environment
+ * Use credentials to connect to the Arable API
+ * Pull info on Devices 
+ * Access Device info stored in key:value pairs
+ * Explore Device Data and read into dataframe
+ * Write Data tables out to a CSV file
+ * Access Location info using Device id
 
-  </div>
+</div>
 
   <div class="input_area" markdown="1">
 
