@@ -13,21 +13,17 @@ folder: examples
 # Downloading Data
 
 _Outline_
--   Set credentials in your environment
--   Use credentials to connect to the Arable API
--   Pull info on Devices 
--   Access Device info stored in key:value pairs
--   Explore Device Data and read into dataframe
--   Write Data tables out to a CSV file
--   Access Location info using Device id
-
-<div class="input_area" markdown="1">
+1. Set credentials in your environment
+1. Use credentials to connect to the Arable API
+1. Pull info on Devices 
+1. Access Device info stored in key:value pairs
+1. Explore Device Data and read into dataframe
+1. Write Data tables out to a CSV file
+1. Access Location info using Device id
 
 ## Set credentials in your environment
 
 In [Getting Started](https://pro-soap.cloudvent.net/index.html) we set up our username, password, and tenant in the shell environment. First we need retrieve them here:
-
-</div>
 
   <div class="input_area" markdown="1">
 
