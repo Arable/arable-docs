@@ -13,13 +13,13 @@ folder: examples
 # Downloading Data
 
 _Outline_
-  - Set credentials in your environment
-  - Use credentials to connect to the Arable API
-  - Pull info on Devices 
-  - Access Device info stored in key:value pairs
-  - Explore Device Data and read into dataframe
-  - Write Data tables out to a CSV file
-  - Access Location info using Device id
+-   Set credentials in your environment
+-   Use credentials to connect to the Arable API
+-   Pull info on Devices 
+-   Access Device info stored in key:value pairs
+-   Explore Device Data and read into dataframe
+-   Write Data tables out to a CSV file
+-   Access Location info using Device id
 
 <div class="input_area" markdown="1">
 
