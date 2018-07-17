@@ -10,28 +10,24 @@ box_number: 1
 folder: examples
 ---
 
-<div class="input_area" markdown="1">
-
 # Downloading Data
 
-Outline:
- * Set credentials in your environment
- * Use credentials to connect to the Arable API
- * Pull info on Devices 
- * Access Device info stored in key:value pairs
- * Explore Device Data and read into dataframe
- * Write Data tables out to a CSV file
- * Access Location info using Device id
+_Outline_
+  - Set credentials in your environment
+  - Use credentials to connect to the Arable API
+  - Pull info on Devices 
+  - Access Device info stored in key:value pairs
+  - Explore Device Data and read into dataframe
+  - Write Data tables out to a CSV file
+  - Access Location info using Device id
 
-</div>
-
-  <div class="input_area" markdown="1">
+<div class="input_area" markdown="1">
 
 ## Set credentials in your environment
 
 In [Getting Started](https://pro-soap.cloudvent.net/index.html) we set up our username, password, and tenant in the shell environment. First we need retrieve them here:
 
-  </div>
+</div>
 
   <div class="input_area" markdown="1">
 
@@ -53,27 +49,18 @@ print arable_email, arable_passwd, arable_tenant
 
   <div class="input_area" markdown="1">
   
-```python
-# grab some mark data
+## Use credentials to connect to the Arable API
 
-# These credentials can be used to access demo data:
-demo_email = 'friendof@arable.com'
-demo_password = 'agrofuturism'
-demo_tenant = 'franz_hydro'
+There are two ways to connect, one is with a username and password, the other is a JSON Web Token ([JWT](https://jwt.io/)) that can be used directly in the header of an HTTP request.
 
-```
+First import the Arable python client you downloaded using `pip install arable`.
+
 </div>
 
-{% include note.html content="Next, we read your actual credentials in as environmental variables. If they aren't available, we'll just use the demo crendentials. See [Getting Started] for instructions on setting environmental variavbles" %}
-
-  <div class="input_area" markdown="1">
+<div class="input_area" markdown="1">
 
 ```python
-
-email = os.getenv('ARABLE_EMAIL', demo_email)
-password = os.getenv('ARABLE_PASSWORD', demo_password)
-tenant = os.getenv('ARABLE_TENANT', demo_tenant)
-
+from arable.client import *
 ```
 </div>
 
