@@ -1,6 +1,6 @@
 ---
-title: Sample 1 Topic
-keywords: sample
+title: Downloading Data
+keywords: coding
 summary: "Learn how to pull data from the Arable API"
 sidebar: examples_sidebar
 permalink: ex1_Downloading.html
@@ -10,16 +10,15 @@ box_number: 1
 folder: examples
 ---
 
-# Downloading Data
+## Introduction
 
-_Outline_
-1. Set credentials in your environment
-1. Use credentials to connect to the Arable API
-1. Pull info on Devices 
-1. Access Device info stored in key:value pairs
-1. Explore Device Data and read into dataframe
-1. Write Data tables out to a CSV file
-1. Access Location info using Device id
+A REST API is somewhat universal - - you can access it from Mac, Windows, and Linux machines, using python, bash, java, js, or many other languages.  Here, we will focus on the OS we use in-house (OS X), the language we us in our production environment (python), and our preferred prototyping tool ([jupyter](http://www.jupyter.org/)).  
+
+If you are working in other systems and languages, let us know! We'd love to highlight your work here.
+
+This example will mostly be about basic python and jupyter.  Example 2 will mostly be related to using Pandas, a python framework used widely data science.  Example 3 will mostly be related to Matplotlib, a framework for visualization.  Example 4 will mostly be related to using numpy, a framework for doing calculations in python.
+
+If you haven't done so already, fire up jupyter using the `ipy` command we added to your bash environment, or with `jupyter notebook` if you haven't.
 
 ## Set credentials in your environment
 
@@ -501,7 +500,7 @@ def location_info(loc_id, auth_token):
 
 Great job! Now head over to the [Data Wrangling](https://pro-soap.cloudvent.net/ex1_Wrangling.html) tutorial! 
 
-
+Questions, comments, corrections?  Write the author: adam@arable.com
 
 
 
