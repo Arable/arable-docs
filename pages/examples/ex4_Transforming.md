@@ -1,9 +1,9 @@
 ---
-title: Sample 4 Topic
+title: Transforming Data
 keywords: sample
 summary: "This is just a sample topic..."
 sidebar: examples_sidebar
-permalink: example_4.html
+permalink: ex4_Transforming.html
 simple_map: true
 map_name: usermap
 box_number: 4

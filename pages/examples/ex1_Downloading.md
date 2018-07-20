@@ -16,7 +16,7 @@ A REST API is somewhat universal - - you can access it from Mac, Windows, and Li
 
 If you are working in other systems and languages, let us know! We'd love to highlight your work here.
 
-This example will mostly be about basic python and jupyter.  Example 2 will mostly be related to using Pandas, a python framework used widely data science.  Example 3 will mostly be related to Matplotlib, a framework for visualization.  Example 4 will mostly be related to using numpy, a framework for doing calculations in python.
+This example will mostly be about basic python and jupyter.  [Example 2]({{ 'ex2_Wrangling.html' | relative_url }}) will mostly be related to using Pandas, a python framework used widely data science.  [Example 3]({{ 'ex3_Visualizing.html' | relative_url }}) will mostly be related to Matplotlib, a framework for visualization.  [Example 4]({{ 'ex4_Transforming.html' | relative_url }}) will mostly be related to using numpy, a framework for doing calculations in python.
 
 If you haven't done so already, fire up jupyter using the `ipy` command we added to your bash environment, or with `jupyter notebook` if you haven't.
 
@@ -27,7 +27,7 @@ In [Getting Started](https://pro-soap.cloudvent.net/index.html) we set up our us
 ```python
 import os
 arable_email = os.getenv('ARABLE_EMAIL')
-arable_passwd = os.getenv('ARABLE_PASSWD')
+arable_passwd = os.getenv('ARABLE_PASSWORD')
 arable_tenant = os.getenv('ARABLE_TENANT')
 
 print arable_email, arable_passwd, arable_tenant
@@ -53,7 +53,7 @@ Next use the ArableClient to make a connection with your credentials:
 
 ```python
 a = ArableClient()
-a.connect(arable_email, arable_passwd, arable_tenant)
+a.connect(arable_email, arable_password, arable_tenant)
 ```
 
 You can get your bearer token directly from the header of the response:
