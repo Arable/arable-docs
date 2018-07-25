@@ -34,7 +34,7 @@ print arable_email, arable_passwd, arable_tenant
 ```
   
 {:.output_stream}
-```
+```bash
 friendof@arable.com agrofuturism franz_hydro
 ```  
   
@@ -65,7 +65,7 @@ print auth_token
 ```
   
 {:.output_stream}
-```
+```bash
 Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vYXBpLmFyYWJsZS5jb20iLCJpYXQiOjE1MzE4MzgyODQsImp0aSI6IjVlNzIyYjU4NDY2ZDQ4N2Y4OGI5ODVkMTM0OTk5MjAyIiwiYXVkIjoiYXBpLmFyYWJsZS5jb20iLCJzY29wZSI6ImM2YjllMTIxLTFiZjItNDNkMS1hNDYwLTI3NWIxZWI0ODdhOSJ9.n3K8bES7-Wko5urpwBO24w2JZQrHoABtL1b_ssymtHs
 ```
 
@@ -89,7 +89,7 @@ list(devices[0])
 ```
 
 {:.output_stream}
-```
+```bash
 [u'sync_interval',
  u'updated',
  u'name',
@@ -124,7 +124,7 @@ d
 ```
 
 {:.output_stream}
-```
+```bash
 {u'created': u'2017-12-13T18:01:37.061000',
  u'firmware': u'eff57fea-8cd9-4dc7-ac2e-3296e8bfc5e0',
  u'flags': [u'GPS', u'Orientation'],
@@ -165,7 +165,7 @@ d = a.devices(device_id)
 device_id
 ```
 {:.output_stream}
-```
+```bash
 u'58e65d68b4e1e886020c517e'
 ```
 
@@ -180,7 +180,7 @@ for i in range(len(devices)):
 ```
 
 {:.output_stream}
-```
+```bash
 A000176 Very Good
 A000654 Good
 A000149 Very Good
@@ -241,7 +241,7 @@ list(hourly)
 ```
 
 {:.output_stream}
-```
+```bash
 ['time',
  'device',
  'location',
@@ -293,7 +293,7 @@ list(daily)
 ```
 
 {:.output_stream}
-```
+```bash
 ['time',
  'device',
  'location',
@@ -319,7 +319,7 @@ list(daily)
 And so on for `health`:
 
 {:.output_stream}
-```
+```bash
 ['time',
  'device',
  'lat',
@@ -414,7 +414,7 @@ location
 ```
 
 {:.output_stream}
-```
+```bash
 {u'addr_city': u'North Platte',
  u'addr_postcode': u'69101',
  u'addr_state': u'NE',
