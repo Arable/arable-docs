@@ -14,6 +14,18 @@ folder: examples
 
 Matplotlib
 
+##
+plot
+
+axes
+
+multi panel
+
+colors
+
+legends
+
+
 ## Radiation budget
 
 ## Temperatures
