@@ -483,7 +483,6 @@ def location_info(loc_id, auth_token):
     : return: location metadata
     '''
 
-    #base = 'https://api.arable.com/dev3'
     base = 'https://api-user.arable.cloud/api/v1/'
     path = '/locations/'
     url = base + path + loc_id
