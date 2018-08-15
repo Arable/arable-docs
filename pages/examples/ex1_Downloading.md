@@ -24,6 +24,16 @@ If you haven't done so already, fire up jupyter using the `ipy` command we added
 
 In [Getting Started](https://pro-soap.cloudvent.net/index.html) we set up our username, password, and tenant in the shell environment. First we need retrieve them here:
 
+<pre data-excutable>
+some_variable = 'some value'
+<pre>
+
+<pre data-excutable>
+print(some_variable)
+<pre>
+
+
+
 ```python
 import os
 arable_email = os.getenv('ARABLE_EMAIL')
