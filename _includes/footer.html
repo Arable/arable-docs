@@ -6,3 +6,16 @@
                 </div>
             </div>
 </footer>
+
+<!-- Juniper code execution scripts.-->
+ <script src="{{ "js/juniper.min.js" }}"></script>
+
+<script>
+  new Juniper({ 
+    repo: 'arable-examples/juniper',
+    isolateCells: false,
+    useStorage: true,
+    storageKey: 'arable-examples',
+    storageExpire: 60
+  });
+</script>
