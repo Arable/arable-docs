@@ -47,6 +47,9 @@ summary: These brief instructions will help you get started quickly with using t
 * Make some changes to your environment. 
 
 ```
+touch ~/.bashrc
+```
+```
 echo 'alias ipy="jupyter notebook"' >> ~/.bashrc
 ```
 ```
